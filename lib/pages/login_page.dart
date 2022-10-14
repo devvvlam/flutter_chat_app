@@ -9,9 +9,17 @@ class LoginPage extends StatelessWidget {
       backgroundColor: const Color(0xffF2F2F2),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             _Logo(),
             _Form(),
+            _Labels(),
+            Text(
+              'Términos y condiciones de uso',
+              style: TextStyle(
+                fontWeight: FontWeight.w200,
+              ),
+            )
           ],
         ),
       ),
@@ -25,11 +33,12 @@ class _Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      // ignore:, sized_box_for_whitespace
       child: Container(
+        margin: const EdgeInsets.only(
+          top: 50,
+        ),
         width: 170,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: const [
             Image(
               image: AssetImage('assets/tag-logo.png'),
@@ -62,6 +71,12 @@ class _FormState extends State<_Form> {
   Widget build(BuildContext context) {
     // ignore: avoid_unnecessary_containers
     return Container(
+      margin: const EdgeInsets.only(
+        top: 40,
+      ),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 40,
+      ),
       child: Column(
         children: [
           const TextField(),
@@ -69,6 +84,40 @@ class _FormState extends State<_Form> {
           MaterialButton(
             onPressed: () {},
             child: const Text('touch me'),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _Labels extends StatelessWidget {
+  const _Labels({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // ignore: avoid_unnecessary_containers
+    return Container(
+      child: Column(
+        children: [
+          const Text(
+            'tienes cuenta?',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            'crea una cuenta ahora!',
+            style: TextStyle(
+              color: Colors.blue[600],
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           )
         ],
       ),
